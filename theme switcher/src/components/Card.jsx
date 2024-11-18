@@ -1,6 +1,10 @@
-import React from 'react'
+import {React, useContext} from 'react'
+import ThemeContext from '../context/ThemeContext'
 
 function Card() {
+
+  const {currentTheme} = useContext(ThemeContext)
+  
 
   return (
     <div className='border-2 rounded-md p-4'>
