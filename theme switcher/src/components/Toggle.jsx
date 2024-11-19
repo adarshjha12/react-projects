@@ -1,19 +1,34 @@
-import {React, useContext, useState} from 'react'
-import ThemeContext from '../context/ThemeContext'
+import React, { useState } from 'react'
+import ThemeContext from '../context/Theme'
+import { useContext, useEffect } from 'react'
 
 function Toggle() {
-    const {setTheme} = useContext(ThemeContext)
+  const { setCurrentTheme, darkTheme, lightTheme} = useContext(ThemeContext)
 
-    const themeHandler = () => {
-        setTheme('dark')
+  const [isToggled, setIsToggeled] = useState(false)
+
+
+  useEffect(() => {
+    if (isToggled) {
+      darkTheme();
+      setCurrentTheme('dark');
+    } else {
+      lightTheme();
+      setCurrentTheme('light');
     }
+  }, [isToggled, darkTheme, lightTheme, setCurrentTheme]);
+
+  const clickHandler = () => {
+    setIsToggeled((prev) => !prev);
+  };
+
 
   return (
-    <div className='mb-4 flex justify-start'>
-        <p className='mr-4'>Change Theme</p>
-        <div className='border rounded-2xl w-14'>
-            <div onClick={themeHandler} className='w-6 h-6 bg-blue-600 rounded-full '></div>
-        </div>
+    <div className='flex gap-3 mb-5'>
+          <span>Click To Enable {isToggled ? "light" : "dark"} theme</span>
+          <div onClick={clickHandler}  className='h-5 w-10  border-2 rounded-2xl flex items-center'>
+            <div className={`h-4 w-5 transition-all ease-linear duration-400 bg-gray-300 rounded-full ${isToggled ? 'translate-x-5' : 'translate-x-0'}`}></div>
+          </div>
     </div>
   )
 }

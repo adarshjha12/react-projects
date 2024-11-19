@@ -1,5 +1,5 @@
 import {React, useContext} from 'react'
-import ThemeContext from '../context/ThemeContext'
+import ThemeContext from '../context/Theme'
 
 function Card() {
 
@@ -7,7 +7,7 @@ function Card() {
   
 
   return (
-    <div className='border-2 rounded-md p-4'>
+    <div className=' rounded-md p-4'>
         <div className='flex justify-center mb-4'>
             <img className='w-20 bg-gray-500 p-3 rounded-md' src="/images/bat.png" alt="" />
         </div>

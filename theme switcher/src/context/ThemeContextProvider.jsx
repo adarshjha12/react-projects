@@ -1,14 +1,12 @@
-import React, { useState } from 'react'
-import ThemeContext from './ThemeContext'
+import React from 'react';
+import ThemeContext from './Theme';
 
-function ThemeContextProvider({children}) {
-    const [currentTheme, setTheme] = useState('')
-
+function ThemeContextProvider({ children, value }) {
   return (
-    <ThemeContext.Provider value={{currentTheme, setTheme}}>
-        {children}
+    <ThemeContext.Provider value={value}>
+      {children}
     </ThemeContext.Provider>
-  )
+  );
 }
 
-export default ThemeContextProvider
+export default ThemeContextProvider;
