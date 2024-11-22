@@ -26,8 +26,8 @@ function Toggle() {
   return (
     <div className='flex gap-3 mb-5'>
           <span>Click To Enable {isToggled ? "light" : "dark"} theme</span>
-          <div onClick={clickHandler}  className='h-5 w-10  border-2 rounded-2xl flex items-center'>
-            <div className={`h-4 w-5 transition-all ease-linear duration-400 bg-gray-300 rounded-full ${isToggled ? 'translate-x-5' : 'translate-x-0'}`}></div>
+          <div onClick={clickHandler}  className={`h-5 w-10  border-2 rounded-2xl flex items-center ${isToggled ? 'scale-90' : 'scale-100'}`}>
+            <div className={`h-4 w-4 border-2 transition-all ease-linear duration-400  rounded-full ${isToggled ? 'translate-x-5' : 'translate-x-0'} ${isToggled ? 'bg-blue-500' : 'bg-gray-300'}`}></div>
           </div>
     </div>
   )

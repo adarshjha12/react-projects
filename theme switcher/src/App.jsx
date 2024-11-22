@@ -21,7 +21,7 @@ function App() {
   return (
     <ThemeContextProvider value={{setCurrentTheme,currentTheme, lightTheme, darkTheme}}>
       <Toggle />
-      <div className='bg-white border-2 rounded-2xl text-black dark:bg-black dark:text-white'>
+      <div className='bg-white border-8 border-gray-300 rounded-2xl text-black dark:bg-black dark:text-white'>
       <Card />
       </div>
     </ThemeContextProvider>
