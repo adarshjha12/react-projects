@@ -1,16 +1,13 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import React from 'react';
+import TodoList from './features/todos/TodoList';
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      
-    </>
-  )
+    <div className="h-full border rounded-md p-6">
+      <TodoList />
+    </div>
+  );
 }
 
-export default App
+export default App;
