@@ -128,6 +128,6 @@ class Service {
     }
 }
 
-export const service = new Service()
+export const fileService = new Service()
 
-export default service
+export default fileService
