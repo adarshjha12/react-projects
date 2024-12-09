@@ -7,6 +7,7 @@ import Button from "./Button";
 import Card from "./Card";
 import InputField from "./InputField";
 import SelectBox from "./SelectBox";
+import RTE from "./RTE";
 
 export{
     Header,
@@ -17,5 +18,6 @@ export{
     Button,
     Card,
     InputField,
-    SelectBox
+    SelectBox,
+    RTE
 }
