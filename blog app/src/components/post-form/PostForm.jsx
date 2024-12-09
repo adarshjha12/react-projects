@@ -1,4 +1,4 @@
-import React, {useCallback} from 'react'
+import React, {useCallback, useEffect} from 'react'
 import { useForm } from 'react-hook-form'
 import {InputField, RTE, Button, SelectBox} from '../index'
 import fileService from '../../appwrite/fileServices'
@@ -57,9 +57,21 @@ function PostForm(post) {
         }
      }
 
-     const slugTransform = () =>{
+     const slugTransform = useCallback((value) =>{
+      if (value && typeof value === 'string') {
+        return value.trim().toLowerCase().replace(/ ^[a-zA-Z\d]+/g, '-')
+      } else{
+        return ''
+      }
+     }, [])
+
+     useEffect(() => {
+      const subscription = watch(() => {})
       
-     }
+      return () => {
+        subscription.unsubscribe()
+      }
+     }, [watch, slugTransform, setValue]);
 
   return (
     <div>
