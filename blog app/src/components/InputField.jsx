@@ -10,13 +10,13 @@ const InputField = React.forwardRef( ({
   ...props
 }, ref ) => {
 
-  const id = useId()
+  const generateId = useId()
 
   return (
     <div> 
       {label && <label 
         className='inline-block mb-2 pl-2'
-        htmlFor={id}>
+        htmlFor={id || generateId}>
         {label}
       </label>}
 
@@ -24,7 +24,7 @@ const InputField = React.forwardRef( ({
         type={type}
         placeholder={placeholder}
         name={name}
-        id={id} 
+        id={id || generateId} 
         className={`rounded-md pl-2 text-black ${classname}`}
         ref={ref} 
         {...props}
