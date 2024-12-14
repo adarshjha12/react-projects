@@ -8,6 +8,8 @@ import Card from "./Card";
 import InputField from "./InputField";
 import SelectBox from "./SelectBox";
 import RTE from "./RTE";
+import SignupComponent from "./SignupComponent";
+import LoginComponent from "./LoginComponent";
 
 export{
     Header,
@@ -19,5 +21,7 @@ export{
     Card,
     InputField,
     SelectBox,
-    RTE
+    RTE,
+    SignupComponent,
+    LoginComponent
 }
