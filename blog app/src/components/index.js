@@ -10,6 +10,7 @@ import SelectBox from "./SelectBox";
 import RTE from "./RTE";
 import SignupComponent from "./SignupComponent";
 import LoginComponent from "./LoginComponent";
+import PostForm from "./post-form/PostForm";
 
 export{
     Header,
@@ -23,5 +24,6 @@ export{
     SelectBox,
     RTE,
     SignupComponent,
-    LoginComponent
+    LoginComponent,
+    PostForm
 }
