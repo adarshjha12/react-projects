@@ -46,15 +46,27 @@ function Post() {
 
                 {isAuthor && (
                     <div>
-                        <Link to={`/`}>
-
+                        <Link to={`/edit-post/${post.$id}`}>
+                            <Button classname='bg-green-500 px-3'>
+                                Edit
+                            </Button>
                         </Link>
+                         
+                         <Button onClick={deletePost} classname='bg-red-500 px-3'>
+                            Delete
+                         </Button>
                     </div>
                 )}
             </div>
+            <div className='w-full mb-6'>
+                <h1>{post.title}</h1>
+            </div>
+            <div className='browser-css'>
+                {parse(post.content)}
+            </div>
         </Container>
     </div>
-  ) : ()
+  ) : (null)
 }
 
 export default Post
