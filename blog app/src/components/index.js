@@ -11,6 +11,7 @@ import RTE from "./RTE";
 import SignupComponent from "./SignupComponent";
 import LoginComponent from "./LoginComponent";
 import PostForm from "./post-form/PostForm";
+import Protected from "./Protected";
 
 export{
     Header,
@@ -25,5 +26,6 @@ export{
     RTE,
     SignupComponent,
     LoginComponent,
-    PostForm
+    PostForm,
+    Protected
 }
