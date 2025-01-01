@@ -12,7 +12,7 @@ function Protected({children, authentication = true}) {
   useEffect( () => {
     const handleNavigation = () =>{
       if (authentication !== authStatus) {
-        const targetRoute = authentication ? '/login' : '/'
+        const targetRoute = authentication ? '/' : '/login'
 
         if (window.location.pathname !== targetRoute) {
           navigate(targetRoute)

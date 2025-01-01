@@ -4,7 +4,7 @@ import './index.css'
 import App from './App.jsx'
 import { Provider } from 'react-redux'
 import store from './store/store.js'
-import {createBrowserRouter} from 'react-router-dom'
+import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 import HomePage from './pages/HomePage.jsx'
 import AddPost from './pages/AddPost.jsx'
 import AllPostPage from './pages/AllPostPage.jsx'
@@ -21,9 +21,8 @@ const router = createBrowserRouter([
      children: [
       {
         path: '/',
-        element: <Protected authentication>
+        element: 
           <HomePage/>
-        </Protected>
       },
       {
         path: '/login',
@@ -33,20 +32,33 @@ const router = createBrowserRouter([
       },
       {
         path: '/signup',
-        element: <Protected>
+        element: <Protected authentication={false}>
           <SignupPage/>
         </Protected>
       },
       {
         path: '/all-post',
-        element: <Protected>
+        element: <Protected authentication={true}>
           <AllPostPage/>
         </Protected>
       },
       {
         path: '/add-post',
-        element: <Protected>
+        element: <Protected authentication={true}>
           <AddPost/>
+        </Protected>
+      },
+
+      {
+        path: '/edit-post/:slug',
+        element: <Protected authentication={true}>
+          <EditPostPage/>
+        </Protected>
+      },
+      {
+        path: '/post/:slug',
+        element: <Protected authentication={true}>
+          <Post/>
         </Protected>
       },
      ]
@@ -56,7 +68,7 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Provider store={store}>
-      <App />
+    <RouterProvider router={router}/>
     </Provider>
   </StrictMode>,
 )
