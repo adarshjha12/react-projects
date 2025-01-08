@@ -3,11 +3,13 @@ const config = require('./config/config')
 require('./config/connection')
 const port = config.server.port
 require('./controllers/signin')
+const cors = require('cors')
 const app = express()
 const router = require('./routers/routes')
 
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
+app.use(cors())
 app.use('/auth', router)
 
 app.get('/', (req, res) => {
