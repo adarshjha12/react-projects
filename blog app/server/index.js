@@ -10,11 +10,11 @@ const router = require('./routers/routes')
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use(cors())
-app.use('/auth', router)
+app.use(router)
 
-app.get('/', (req, res) => {
-    res.send('welcome adarsh')
-})
+// app.get('/', (req, res) => {
+//     res.send('welcome adarsh')
+// })
 
 app.listen(port, () => {
     console.log(`server is running on ${port}`);
