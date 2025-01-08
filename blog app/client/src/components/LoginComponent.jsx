@@ -60,7 +60,6 @@ function LoginComponent() {
                         required: true,
                         validate: {
                             matchPattern: (value) => /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value) || 'email must be valid'
-
                         }
                     })}
                 />
