@@ -20,7 +20,9 @@ exports.createUser = async function (req, res) {
         const token = await jwt.sign({userId: newUser._id, email: newUser.email},
             jwtSecret, {expiresIn: '1h'}
         )
-        res.cookie('accessToken', token)
+        res.cookie('accessToken', token, {
+            httpOnly: true
+        })
         res.status(201).json({message: 'user created successfully'})
 
     } catch (error) {

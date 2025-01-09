@@ -3,7 +3,7 @@ const jwtSecret = config.jwt.secret
 const jwt = require('jsonwebtoken')
 
 const verifyToken = async function (req, res, next) {
-        const token = req.headers['authorization']?.split(' ')[1]
+        const token = req.cookies.accessToken
         if(!token) return res.status(403).send({message: 'no tokens found'})
     
             try {

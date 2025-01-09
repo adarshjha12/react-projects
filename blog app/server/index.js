@@ -2,7 +2,7 @@ const express = require('express')
 const config = require('./config/config')
 require('./config/connection')
 const port = config.server.port
-require('./controllers/signin')
+require('./controllers/signup')
 const cors = require('cors')
 const app = express()
 const router = require('./routers/routes')

@@ -17,7 +17,11 @@ exports.loginUser = async function (req, res) {
         const token = jwt.sign({id: findUser._id, email: findUser.email }, jwtSecret,
             {expiresIn: '1h'}
         )
-        res.cookie('accessToken', token)
+        res.cookie('accessToken', token,
+            {
+                httpOnly: true
+            }
+        )
         res.status(200).json({message: 'login successful'})
 
     } catch (error) {
