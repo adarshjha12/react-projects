@@ -4,7 +4,7 @@ import {useForm} from 'react-hook-form'
 import {Link, useNavigate} from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import {login as authLogin} from '../store/authSlice'
-import authService from '../appwrite/auth_service'
+import {loginService, getCurrentUser} from '../services/authServices'
 
 function LoginComponent() {
 
@@ -16,9 +16,9 @@ function LoginComponent() {
     const loginFunction = async (data) =>{
         setErrorState('')
         try {
-            const session = authService.login(data)
+            const session = loginService(data)
             if (session) {
-                const userData = await authService.getCurrentUser()
+                const userData = await getCurrentUser()
 
                 if (userData) {
                     dispatch(authLogin(userData))

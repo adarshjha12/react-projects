@@ -7,25 +7,26 @@ import fileService from '../appwrite/fileServices'
 function HomePage() {
     const [posts, setPosts] = useState([])
 
-    useEffect(() => {
-        fileService.getPosts()
-        .then((posts) => {
-            if (posts) {
-                setPosts(posts)
-            }
-        })
-        .catch((err) => console.log(err)
-        )
+    // useEffect(() => {
+    //     fileService.getPosts()
+    //     .then((posts) => {
+    //         if (posts) {
+    //             setPosts(posts)
+    //         }
+    //     })
+    //     .catch((err) => console.log(err)
+    //     )
         
-    }, []);
+    // }, []);
   
-    if (posts.length === 0) {
-        return (
-            <div>
-                <h1>you don't have any posts</h1>
-            </div>
-        )
-    }
+    // if (posts.length === 0) {
+    //     return (
+    //         <div>
+    //             <h1>you don't have any posts</h1>
+    //             <p className='text-white'>please login or signup</p>
+    //         </div>
+    //     )
+    // }
 
     return (
         <div>

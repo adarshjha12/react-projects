@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import authService from '../appwrite/auth_service'
+import {signupService, getCurrentUser} from '../services/authServices'
 import {Link, useNavigate} from 'react-router-dom'
 import {login as authLogin} from '../store/authSlice'
 import { useDispatch } from 'react-redux'
@@ -17,13 +17,15 @@ function SignupComponent() {
     setErrorState('')
 
     try {
-      const newUser = authService.createAccount(data)
+      const newUser = signupService(data)
 
       if (newUser) {
-        const userData = authService.getCurrentUser()
+        const userData = getCurrentUser()
 
         if (userData) {
-          dispatch(authLogin(userData))
+          // dispatch(authLogin(userData))
+          console.log('********************HERE IS YOUR DATA *************************',userData);
+          
           navigate('/')
         }
       }

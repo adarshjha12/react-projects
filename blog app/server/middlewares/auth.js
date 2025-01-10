@@ -7,7 +7,11 @@ const verifyToken = async function (req, res, next) {
         if(!token) return res.status(403).send({message: 'no tokens found'})
     
             try {
-                const decodedUser = await jwt.verify(token, jwtSecret)
+                await jwt.verify(token, jwtSecret, (err, decoded) => {
+                    if(err) return res.status(401).send({message: 'unauthorized'})
+                    req.userId = decoded.id
+                    next()
+                })
                 req.user = decodedUser
                 next()
             } catch (error) {

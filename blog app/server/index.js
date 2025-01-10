@@ -4,12 +4,22 @@ require('./config/connection')
 const port = config.server.port
 require('./controllers/signup')
 const cors = require('cors')
+const cookieParser = require('cookie-parser')
 const app = express()
 const router = require('./routers/routes')
 
+const corsOptions = {
+    origin: 'http://localhost:5173',
+    credentials: true,
+    optionsSuccessStatus: 200
+}
+
+app.options('*', cors(corsOptions))
+
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
-app.use(cors())
+app.use(cors(corsOptions))
+app.use(cookieParser())
 app.use(router)
 
 // app.get('/', (req, res) => {
