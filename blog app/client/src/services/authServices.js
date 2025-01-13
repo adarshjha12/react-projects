@@ -1,5 +1,8 @@
 import axios from 'axios';
 
+axios.defaults.withCredentials = true;
+
+
 const loginService = async function ({ email, password }) {
     try {
         if (!email || !password) {

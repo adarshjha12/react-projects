@@ -57,25 +57,25 @@ function App() {
    
 
 useEffect(() => {
-  signupService({ title: 'User', email: 'abcdefghij@example.com', password: '123456' })
-    .then((data) => console.log('Signup Success:', data))
-    .catch((err) => console.log('Signup Failed:', err));
+  // signupService({ title: 'User', email: 'abcdefghij@example.com', password: '123456' })
+  //   .then((data) => console.log('Signup Success:', data))
+  //   .catch((err) => console.log('Signup Failed:', err));
 
     loginService({ email: 'abcdefghij@example.com', password: '123456' })
     .then((data) => console.log('Login Success:', data))
     .catch((err) => console.log('Login Failed:', err));
 
-    getCurrentUser()
-    .then((data) => console.log('Current User:', data))
-    .catch((err) => console.log('Error Fetching Current User:', err));
-
-  
+    setTimeout(() => {
+      getCurrentUser()
+        .then((data) => console.log('Current User:', data))
+        .catch((err) => console.log('Error Fetching Current User:', err));
+    }, 3000);
 }, []);
 
     
-    getCurrentUser()
-    .then((data) => console.log('Current User:', data))
-    .catch((err) => console.log('Error Fetching Current User:', err));
+    // getCurrentUser()
+    // .then((data) => console.log('Current User:', data))
+    // .catch((err) => console.log('Error Fetching Current User:', err));
 
   
   // const dispatch = useDispatch()
