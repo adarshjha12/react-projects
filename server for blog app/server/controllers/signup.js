@@ -21,10 +21,11 @@ exports.createUser = async function (req, res) {
             jwtSecret, {expiresIn: '1h'}
         )
 
-        console.log('token:', token);
+        console.log('here is the user', newUser);
         
         await res.cookie('accessToken', token, {
             httpOnly: true,
+            secure: true,
             sameSite: 'None',
             maxAge: 60*60*1000,
         })

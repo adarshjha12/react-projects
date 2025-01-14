@@ -13,25 +13,26 @@ function SignupComponent() {
   const dispatch = useDispatch()
   const {register, handleSubmit} = useForm()
 
-  const signupUser = (data) =>{
+  const signupUser = async (data) =>{
+    console.log('collected data by rhf', data);
+    
     setErrorState('')
 
     try {
-      const newUser = signupService(data)
+      const newUser = await signupService(data)
 
       if (newUser) {
-        const userData = getCurrentUser()
-
-        if (userData) {
-          // dispatch(authLogin(userData))
-          console.log('********************HERE IS YOUR DATA *************************',userData);
-          
-          navigate('/')
-        }
+          const userData = await getCurrentUser()
+          if (userData) {
+            // dispatch(authLogin(userData))
+            console.log('********************HERE IS YOUR DATA *************************',newUser);
+            
+            navigate('/')
+          }       
       }
     } catch (error) {
-      setErrorState(error)
-    }
+      const errorMessage = error.response?.data?.message || error.message || 'An unexpected error occurred';
+      setErrorState(errorMessage);    }
   }
 
   return (
@@ -58,7 +59,7 @@ function SignupComponent() {
             label = 'Name:'
             type = 'text'
             placeholder = 'enter your name'
-            {...register('name', {
+            {...register('title', {
               required: true
             })}
           />
@@ -88,7 +89,7 @@ function SignupComponent() {
                 
         </form>
       </div>
-    </div>
+    </div>  
   )
 }
 

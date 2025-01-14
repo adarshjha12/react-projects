@@ -8,7 +8,7 @@ const loginService = async function ({ email, password }) {
         if (!email || !password) {
             throw new Error('Email and password are required');
         }
-        const response = await axios.post('http://localhost:3000/user/login', { email, password }, { withCredentials: true });
+        const response = await axios.post('http://localhost:3000/user/login', { email, password });
         return response.data;
     } catch (error) {
         console.error('Error during login:', error?.response?.data || error.message);
@@ -21,7 +21,7 @@ const signupService = async function ({ title, email, password }) {
         if (!title || !email || !password) {
             throw new Error('Title, email, and password are required');
         }
-        const response = await axios.post('http://localhost:3000/user/signup', { title, email, password }, { withCredentials: true });
+        const response = await axios.post('http://localhost:3000/user/signup', { title, email, password });
         return response.data;
     } catch (error) {
         console.error('Error during signup:',error?.response?.data || error.message);
