@@ -22,7 +22,7 @@ const signupService = async function ({ title, email, password }) {
             throw new Error('Title, email, and password are required');
         }
         const response = await axios.post('http://localhost:3000/user/signup', { title, email, password });
-        return response.data;
+        return response;
     } catch (error) {
         console.error('Error during signup:',error?.response?.data || error.message);
         throw error;

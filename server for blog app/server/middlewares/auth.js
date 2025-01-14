@@ -24,6 +24,7 @@ const verifyToken = async function (req, res, next) {
 
             // Attach the user ID from the token to the request object
             req.userId = decoded.id;
+            
             next(); // Proceed to the next middleware or route handler
         });
     } catch (error) {

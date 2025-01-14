@@ -22,10 +22,12 @@ function SignupComponent() {
       const newUser = await signupService(data)
 
       if (newUser) {
+        console.log(newUser);
+        
           const userData = await getCurrentUser()
           if (userData) {
             // dispatch(authLogin(userData))
-            console.log('********************HERE IS YOUR DATA *************************',newUser);
+            console.log('********************HERE IS YOUR DATA *************************',userData);
             
             navigate('/')
           }       

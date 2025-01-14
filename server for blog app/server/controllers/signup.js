@@ -17,7 +17,7 @@ exports.createUser = async function (req, res) {
         })
         await newUser.save()
         
-        const token = await jwt.sign({userId: newUser._id, email: newUser.email},
+        const token = await jwt.sign({id: newUser._id, email: newUser.email},
             jwtSecret, {expiresIn: '1h'}
         )
 
@@ -27,11 +27,10 @@ exports.createUser = async function (req, res) {
             httpOnly: true,
             secure: true,
             sameSite: 'None',
-            maxAge: 60*60*1000,
         })
         console.log('message: user created successfully');
         
-        res.status(201).json({message: 'user created successfully'})
+        res.status(201).send('user created successfully')
 
     } catch (error) {
         res.status(500).json({message: 'internal server error', err: error})
