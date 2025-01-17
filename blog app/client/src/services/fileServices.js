@@ -17,7 +17,16 @@ const updatePost = async function (slug, {title, content, status, featuredImage}
         return response.data
     } catch (error) {
         console.log(error);
-        
+
     }
 }
 
+const deletePost = async function (slug) {
+    try {
+        axios.delete('http://localhost:3000/user/login', slug)
+        return {message: 'deleted Successfully'}
+    } catch (error) {
+        console.log(error);
+        
+    }
+}
