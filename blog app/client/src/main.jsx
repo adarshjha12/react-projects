@@ -43,7 +43,7 @@ const router = createBrowserRouter([
         </Protected>
       },
       {
-        path: '/add-post',
+        path: '/add-posts',
         element: <Protected authentication={true}>
           <AddPost/>
         </Protected>

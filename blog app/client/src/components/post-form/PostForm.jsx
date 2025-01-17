@@ -78,7 +78,7 @@ function PostForm(post) {
      }, [watch, slugTransform, setValue]);
 
   return (
-    <form action="">
+    <form action="" onSubmit={handleSubmit(submit)}>
       <div className='w-2/3 px-2'>
           <InputField
             label = 'Title:'
