@@ -13,6 +13,12 @@ const config = {
     jwt:{
         secret: process.env.JWT_SECRET,
         expiration: '1h'
+    },
+
+    cloudinary: {
+        cloudName: adarsh-ka-cloudinary,
+        apiKey: '984153429723341',
+        apiSecret: 'AUufieU4K0TvwPUEIoL8U6SOee8'
     }
 }
 
