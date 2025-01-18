@@ -6,7 +6,7 @@ require('./controllers/signup');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const app = express();
-const router = require('./routers/routes');
+const authRouter = require('./routers/authRoutes');
 
 const corsOptions = {
     origin: 'http://localhost:5173',
@@ -27,7 +27,7 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use(router);
+app.use(authRouter);
 
 // app.get('/', (req, res) => {
 //     res.send('welcome adarsh')
@@ -35,4 +35,6 @@ app.use(router);
 
 app.listen(port, () => {
     console.log(`server is running on ${port}`);
+    console.log(authRouter);
+    
 });
