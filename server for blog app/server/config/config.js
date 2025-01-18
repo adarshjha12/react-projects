@@ -16,9 +16,9 @@ const config = {
     },
 
     cloudinary: {
-        cloudName: adarsh-ka-cloudinary,
-        apiKey: '984153429723341',
-        apiSecret: 'AUufieU4K0TvwPUEIoL8U6SOee8'
+        cloudName: process.env.CLOUDINARY_NAME,
+        apiKey: process.env.CLOUDINARY_API_KEY,
+        apiSecret: process.env.CLOUDINARY_API_SECRET
     }
 }
 
