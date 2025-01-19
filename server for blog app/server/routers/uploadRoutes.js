@@ -19,6 +19,7 @@ const storage = new createCloudinaryStorage({
   },
 });
 
-
+const upload = multer({ storage });
+router.post('/', upload.single('image'), uploadData);
 
 module.exports = router
