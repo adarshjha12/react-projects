@@ -7,6 +7,7 @@ const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const app = express();
 const authRouter = require('./routers/authRoutes');
+const uploadRouter = require('./routers/uploadRoutes')
 
 const corsOptions = {
     origin: 'http://localhost:5173',
@@ -27,14 +28,13 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use(authRouter);
+app.use('/', authRouter);
+app.use('/upload', uploadRouterauthRouter);
 
 // app.get('/', (req, res) => {
 //     res.send('welcome adarsh')
 // });
 
 app.listen(port, () => {
-    console.log(`server is running on ${port}`);
-    console.log(authRouter);
-    
+    console.log(`server is running on ${port}`);    
 });
