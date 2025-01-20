@@ -16,16 +16,16 @@ const uploadsSchema = mongoose.Schema({
     },
 
     public_id: {
-        type: String,
-        required: true
+        type: String
     },
 
     url:{
-        type: String,
-        required: true
-    }
-})
+        type: String
+    },
+},
+{timestamps: true}
+)
 
-const UploadsModel = mongoose.model('uploads', uploadsSchema)
+const UploadsModel = mongoose.model('post_uploads', uploadsSchema)
 
 module.exports = UploadsModel
