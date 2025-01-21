@@ -1,8 +1,14 @@
 import axios from "axios"
 
-const createPost = async function ({title, content, slug, status, featuredImage}) {
+const createPost = async function ({title, content, slug, status, featuredImage, userId}) {
     try {
-        const response = await axios.post('http://localhost:3000/user/login', {title, content, slug, status, featuredImage})
+        const response = await axios.post('http://localhost:3000/upload', {title, content, slug, status, featuredImage, userId}, 
+            {
+                headers:{
+                    'Content-Type': 'multipart/form-data'
+                }
+            }
+        )
 
         return response.data
     } catch (error) {

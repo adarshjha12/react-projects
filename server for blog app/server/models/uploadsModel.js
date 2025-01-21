@@ -15,6 +15,14 @@ const uploadsSchema = mongoose.Schema({
         required: true
     },
 
+    status:{
+        type: String
+    },
+
+    userId:{
+        type: String
+    },
+
     public_id: {
         type: String
     },

@@ -20,7 +20,7 @@ function Post() {
             fileService.getPost(slug)
             .then((post)=>{
                 if (post) setPost(post)
-                    else navigate('/')
+                else navigate('/')
             })
         } else{
             navigate('/')

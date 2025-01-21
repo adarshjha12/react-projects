@@ -29,7 +29,7 @@ app.use((req, res, next) => {
 });
 
 app.use('/', authRouter);
-app.use('/upload', uploadRouterauthRouter);
+app.use('/posts', uploadRouterauthRouter);
 
 // app.get('/', (req, res) => {
 //     res.send('welcome adarsh')

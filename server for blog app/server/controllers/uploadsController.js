@@ -1,7 +1,7 @@
 const UploadsModel = require('../models/uploadsModel')
 
 const uploadData = async function (req, res) {
-    const {title, content, slug} = req.body
+    const {title, content, slug, status, userId} = req.body
 
     if(!title || !content || !slug) return res.status(400).json({message: 'missing title, content or slug'})
 
@@ -22,6 +22,8 @@ const uploadData = async function (req, res) {
             title,
             slug,
             content,
+            status,
+            userId,
             public_id,
             url
         })
