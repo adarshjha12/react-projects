@@ -7,7 +7,7 @@ const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const app = express();
 const authRouter = require('./routers/authRoutes');
-const uploadRouter = require('./routers/uploadRoutes')
+const uploadRouter = require('./routers/postsRoutes')
 
 const corsOptions = {
     origin: 'http://localhost:5173',

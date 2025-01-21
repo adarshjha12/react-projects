@@ -1,6 +1,6 @@
-const UploadsModel = require('../models/uploadsModel')
+const PostsModel = require('../models/postsModel')
 
-const uploadData = async function (req, res) {
+const createPostData = async function (req, res) {
     const {title, content, slug, status, userId} = req.body
 
     if(!title || !content || !slug) return res.status(400).json({message: 'missing title, content or slug'})
@@ -36,4 +36,4 @@ const uploadData = async function (req, res) {
     }
 }
 
-module.exports = uploadData
+module.exports = createPostData
