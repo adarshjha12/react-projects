@@ -29,11 +29,8 @@ app.use((req, res, next) => {
 });
 
 app.use('/', authRouter);
-app.use('/posts', uploadRouterauthRouter);
+app.use('/posts', uploadRouter);
 
-// app.get('/', (req, res) => {
-//     res.send('welcome adarsh')
-// });
 
 app.listen(port, () => {
     console.log(`server is running on ${port}`);    

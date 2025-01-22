@@ -1,7 +1,7 @@
 import React, {useCallback, useEffect} from 'react'
 import { useForm } from 'react-hook-form'
 import {InputField, RTE, Button, SelectBox} from '../index'
-import fileService from '../../appwrite/fileServices'
+import {createPost, updatePost} from '../../services/fileServices'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
@@ -22,7 +22,35 @@ function PostForm(post) {
 
      const submit = async (data) =>{
         if (post) {
-          
+          const formData = new FormData()
+
+          formData.append('postId', post._id)
+          formData.append('title', data.title)
+          formData.append('slug', data.slug)
+          formData.append('content', data.content)
+          formData.append('status', data.status)
+          formData.append('featuredImage', data.image[0])
+
+          const updatedPost = await updatePost(formData)
+
+          if (updatedPost) {
+            navigate(`/post/${updatedPost.data._id}`)
+          }
+        } else{
+            const formData = new FormData()
+
+            formData.append('title', data.title)
+            formData.append('slug', data.slug)
+            formData.append('content', data.content)
+            formData.append('status', data.status)
+            formData.append('featuredImage', data.image[0])
+            formData.append('userId', userData._id)
+
+            const newPost = await createPost(formData)
+
+            if (newPost) {
+              navigate(`/post/${newPost.data._id}`)
+            }
         }
      }
 

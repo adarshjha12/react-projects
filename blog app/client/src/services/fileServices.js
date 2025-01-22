@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const createPost = async function ({title, content, slug, status, featuredImage, userId}) {
+const createPost = async function ({title, slug, content, status, featuredImage, userId}) {
     try {
         const response = await axios.post('http://localhost:3000/posts', {title, content, slug, status, featuredImage, userId}, 
             {
@@ -17,9 +17,9 @@ const createPost = async function ({title, content, slug, status, featuredImage,
     }
 }
 
-const updatePost = async function (postId, {slug, title, content, status, featuredImage}) {
+const updatePost = async function ({postId, title, slug, content, status, featuredImage}) {
     try {
-        const response = await axios.post('http://localhost:3000/posts', postId, {slug, title, content, status, featuredImage}, {
+        const response = await axios.put('http://localhost:3000/posts', {postId, slug, title, content, status, featuredImage}, {
             headers: {
                 'Content-Type' : 'multipart/form-data'
             }
