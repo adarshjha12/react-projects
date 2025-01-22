@@ -31,18 +31,18 @@ const updatePost = async function ({postId, title, slug, content, status, featur
     }
 }
 
-const deletePost = async function (slug) {
+const deletePost = async function (id) {
     try {
-        axios.delete('http://localhost:3000/posts', slug)
+        axios.delete('http://localhost:3000/posts', id)
         return {message: 'deleted Successfully'}
     } catch (error) {
         console.log(error);
         
     }
 }
-const getPost = async function (slug) {
+const getPost = async function (id) {
     try {
-        const response = await axios.get('http://localhost:3000/posts', slug)
+        const response = await axios.get('http://localhost:3000/posts', id)
         return response.data
     } catch (error) {
         console.log(error);
@@ -59,4 +59,14 @@ const getPosts = async function () {
     }
 }
 
-export {createPost, updatePost, deletePost, getPost, getPosts}
+const getImagePreview = async function (imagePath) {
+    try {
+        const response = await axios.get('http://localhost:3000/posts/image', imagePath)
+        return response.data
+    } catch (error) {
+        console.log(error);
+        
+    }
+}
+
+export {createPost, updatePost, deletePost, getPost, getPosts, getImagePreview}

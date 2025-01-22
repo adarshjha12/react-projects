@@ -8,16 +8,16 @@ import { useSelector } from 'react-redux';
 
 function Post() {
     const [post, setPost] = useState([])
-    const {slug} = useParams()
+    const {id} = useParams()
     const navigate = useNavigate()
     const userData = useSelector(state => state.auth.userData)
 
     const isAuthor = post && userData ? userData.$id === post.userId : false
 
     useEffect(() => {
-        if (slug) {
+        if (id) {
             
-            fileService.getPost(slug)
+            fileService.getPost(id)
             .then((post)=>{
                 if (post) setPost(post)
                 else navigate('/')
