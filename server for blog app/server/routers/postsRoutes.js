@@ -6,8 +6,8 @@ const {createCloudinaryStorage} = require('multer-storage-cloudinary')
 const createPost = require('../controllers/createPostsController')
 const updatePost = require('../controllers/updatePostsController')
 const getPost = require('../controllers/getPost')
-const getImagePreview = require('../controllers/getPost')
-const deletePost = require('../controllers/getPost')
+const getImagePreview = require('../controllers/imagePreviewController')
+const deletePost = require('../controllers/deletePostController')
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_NAME,
