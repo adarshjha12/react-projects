@@ -3,7 +3,8 @@ const router = express.Router()
 const multer = require('multer')
 const cloudinary = require('cloudinary')
 const {createCloudinaryStorage} = require('multer-storage-cloudinary')
-const uploadData = require('../controllers/postsController')
+const createPost = require('../controllers/createPostsController')
+const updatePost = require('../controllers/updatePostsController')
 
 
 cloudinary.config({
@@ -21,7 +22,7 @@ const storage = new createCloudinaryStorage({
 });
 
 const upload = multer({ storage });
-router.post('/', upload.single('image'), uploadData);
-router.put('/', )
+router.post('/', upload.single('image'), createPost);
+router.put('/', upload.single('image'), updatePost)
 
 module.exports = router
