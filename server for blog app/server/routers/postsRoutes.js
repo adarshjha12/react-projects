@@ -6,6 +6,8 @@ const {createCloudinaryStorage} = require('multer-storage-cloudinary')
 const createPost = require('../controllers/createPostsController')
 const updatePost = require('../controllers/updatePostsController')
 const getPost = require('../controllers/getPost')
+const getImagePreview = require('../controllers/getPost')
+const deletePost = require('../controllers/getPost')
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_NAME,
@@ -25,5 +27,7 @@ const upload = multer({ storage });
 router.post('/', upload.single('image'), createPost);
 router.put('/', upload.single('image'), updatePost)
 router.get('/', getPost)
+router.get('/image', getImagePreview)
+router.delete('/', deletePost)
 
 module.exports = router
