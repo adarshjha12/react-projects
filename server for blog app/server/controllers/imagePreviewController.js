@@ -1,14 +1,15 @@
 const PostsModel = require('../models/postsModel');
 
 const getPreview = async function (req, res) {
-    const { imagePath } = req.body;
 
-    if (!imagePath) {
+    const {url} = req.body
+
+    if (!url) {
         return res.status(400).json({ message: 'Image path is required' });
     }
 
     try {
-        const previewData = await PostsModel.findOne({ url: imagePath });
+        const previewData = await PostsModel.findOne({ url: url });
 
         if (!previewData) {
             return res.status(404).json({ message: 'Cannot get preview image' });

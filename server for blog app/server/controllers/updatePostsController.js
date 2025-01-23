@@ -1,5 +1,4 @@
 const PostsModel = require('../models/postsModel')
-const { post } = require('../routers/authRoutes')
 
 const updatePost = async function (req, res) {
     const {postId, slug, title, content, status} = req.body
@@ -27,7 +26,7 @@ const updatePost = async function (req, res) {
 
    } catch (error) {
         console.log(error);
-        res.status(500),json({
+        res.status(500).json({
             message: 'error occured while updating the post',
             error: error.message
         })

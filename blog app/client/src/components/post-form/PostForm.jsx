@@ -18,10 +18,12 @@ function PostForm(post) {
      })
 
      const navigate = useNavigate()
-     const userData = useSelector(state => state.auth.userdata)
+     const userData = useSelector(state => state.auth.userData)
+
 
      const submit = async (data) =>{
-        if (post) {
+        if (post && post._id) {
+          
           const formData = new FormData()
 
           formData.append('postId', post._id)
@@ -31,10 +33,10 @@ function PostForm(post) {
           formData.append('status', data.status)
           formData.append('featuredImage', data.image[0])
 
-          const updatedPost = await updatePost(formData)
+          const updatedPost = updatePost(formData)
 
           if (updatedPost) {
-            navigate(`/post/${updatedPost.data._id}`)
+            navigate(`/post/${updatedPost.data.id}`)
           }
         } else{
             const formData = new FormData()
@@ -49,6 +51,8 @@ function PostForm(post) {
             const newPost = await createPost(formData)
 
             if (newPost) {
+              console.log('++++++++****************+++++++++', newPost);
+
               navigate(`/post/${newPost.data._id}`)
             }
         }
@@ -113,7 +117,7 @@ function PostForm(post) {
 
           {post && (
             <div className='w-full mb-4'>
-                <img src={getImagePreview(post.featuredImage)}
+                <img src={getImagePreview(post.url)}
                  alt={post.title} className='rounded-lg' />
             </div>
           )}

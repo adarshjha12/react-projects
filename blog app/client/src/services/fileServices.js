@@ -59,9 +59,9 @@ const getPosts = async function () {
     }
 }
 
-const getImagePreview = async function (imagePath) {
+const getImagePreview = async function (url) {
     try {
-        const response = await axios.get('http://localhost:3000/posts/image', imagePath)
+        const response = await axios.get('http://localhost:3000/posts/image', url)
         return response.data
     } catch (error) {
         console.log(error);

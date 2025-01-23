@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 function EditPostPage() {
 
-  const [posts, setPosts] = useState([])
+  const [post, setPost] = useState([null])
   const {slug} = useParams()
   const navigate = useNavigate()
 
@@ -16,7 +16,7 @@ function EditPostPage() {
         fileService.getPost(slug)
         .then((post) => {
           if (post) {
-            setPosts(post)
+            setPost(post)
           }
         })
     } else{
@@ -24,10 +24,10 @@ function EditPostPage() {
     }
   }, [slug, navigate]);
   
-  return posts ? (
+  return post ? (
     <div>
       <Container>
-        <PostForm post={posts}/>
+        <PostForm post={post}/>
       </Container>
     </div>
   ) : (null)

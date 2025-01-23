@@ -6,7 +6,7 @@ const createPostData = async function (req, res) {
     if(!title || !content || !slug) return res.status(400).json({message: 'missing title, content or slug'})
 
     try {
-        const existingSlug = await UploadsModel.findOne({slug})
+        const existingSlug = await PostsModel.findOne({slug})
         if(existingSlug) return res.status(400).json({message: 'slug already exists'})
 
         const {file} = req
