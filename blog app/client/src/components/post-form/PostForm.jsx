@@ -1,7 +1,7 @@
 import React, {useCallback, useEffect} from 'react'
 import { useForm } from 'react-hook-form'
 import {InputField, RTE, Button, SelectBox} from '../index'
-import {createPost, updatePost} from '../../services/fileServices'
+import {createPost, updatePost, getImagePreview} from '../../services/fileServices'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
@@ -56,7 +56,7 @@ function PostForm(post) {
 
      const slugTransform = useCallback((value) =>{
       if (value && typeof value === 'string') {
-        return value.trim().toLowerCase().replace(/ ^[a-zA-Z\d]+/g, '-')
+        return value.trim().toLowerCase().replace(/\s/g, '-')
       } else{
         return ''
       }
@@ -113,7 +113,7 @@ function PostForm(post) {
 
           {post && (
             <div className='w-full mb-4'>
-                <img src={fileService.getFilePreview(post.featuredImage)}
+                <img src={getImagePreview(post.featuredImage)}
                  alt={post.title} className='rounded-lg' />
             </div>
           )}
@@ -127,7 +127,7 @@ function PostForm(post) {
 
           <Button
             type='submit'
-            bgcolor={post? bg-green-600 : undefined}
+            bgcolor={post? 'bg-green-600' : undefined}
             classname='w-full'
           >
           {post ? 'Update' : 'Submit'}

@@ -1,3 +1,8 @@
+import {useSelector} from 'react-redux'
+import {useNavigate, Link} from 'react-router-dom'
+import {Container, LogoutBtn} from '../index'
+
+
 function Header() {
   const authStatus = useSelector((state) => state.auth.status);
   const navigate = useNavigate();
@@ -47,3 +52,5 @@ function Header() {
     </div>
   );
 }
+
+export default Header
